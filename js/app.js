@@ -8,8 +8,22 @@
   });
 })();
 
-//search item
+(function () {
+  const clearCartButton = document.getElementById("clear-cart");
+  clearCartButton.addEventListener("click", function () {
+    const cartItems = document.querySelectorAll(".cart-item");
+    cartItems.forEach(function (element) {
+      element.remove();
+    });
+    showTotals();
+  });
+})();
 
+function removeFromCart(element) {
+  const elementParent = element.parentElement;
+  elementParent.remove();
+  showTotals();
+}
 //add items to the cart
 
 (function () {
@@ -57,26 +71,28 @@
 
     });
   });
-  // show totals
-  function showTotals() {
-    const total = [];
-    const items = document.querySelectorAll(".cart-item-price");
-    //debugger
-    items.forEach(function (item) {
-      total.push(parseFloat(item.textContent));
-    });
-    //console.log(total);
-    const totalMoney = total.reduce(function (total, item) {
-      total += item;
-      return total;
-    }, 0);
-    const finalMoney = totalMoney.toFixed(2);
-    document.getElementById("cart-total").textContent = finalMoney;
-    document.querySelector(".item-total").textContent = finalMoney;
-    document.getElementById("item-count").textContent = total.length;
-  }
-
 })();
+// show totals
+function showTotals() {
+  const total = [];
+  const items = document.querySelectorAll(".cart-item-price");
+  //debugger
+  items.forEach(function (item) {
+    total.push(parseFloat(item.textContent));
+  });
+  //console.log(total);
+  const totalMoney = total.reduce(function (total, item) {
+    total += item;
+    return total;
+  }, 0);
+  const finalMoney = totalMoney.toFixed(2);
+  document.getElementById("cart-total").textContent = finalMoney;
+  document.querySelector(".item-total").textContent = finalMoney;
+  document.getElementById("item-count").textContent = total.length;
+}
+
+
+
 function getTotal() {
   const total = [];
   const items = document.querySelectorAll(".cart-item-price");
@@ -102,7 +118,7 @@ function check() {
     cartItems.forEach(function (element) {
       element.remove();
     });
-    showTotals();
+    showTotals()
   });
 
 }
@@ -132,29 +148,61 @@ for (var i = 0; i < deleteItem.length; i++) {
   }
   document.getElementsByClassName('cart-total').innerText = total1
 }*/
-(function () {
-  const clearCartButton = document.getElementById("clear-cart");
-  clearCartButton.addEventListener("click", function () {
-    const cartItems = document.querySelectorAll(".cart-item");
-    cartItems.forEach(function (element) {
-      element.remove();
-    });
-    showTotals();
-  });
-})();
 
-function removeFromCart(element) {
-  const elementParent = element.parentElement;
-  elementParent.remove();
-  showTotals();
+
+
+//search items 
+const sItems = [
+  { id: 0, name: "religion item", img: "img/religion1.jpg", price: 5 },
+  { id: 1, name: "religion item", img: "img/religion2.jpg", price: 5 },
+  { id: 2, name: "religion item", img: "img/religion3.jpg", price: 5 },
+  { id: 2, name: "history item", img: "img/history1.jpg", price: 10 },
+  { id: 2, name: "history item", img: "img/history2.jpg", price: 10 },
+  { id: 2, name: "history item", img: "img/history3.jpg", price: 10 },
+];
+// (function search() {
+//   const searchItems = document.getElementById("search-store-items");
+//   searchItems.addEventListener("submit", function (event) {
+//     event.preventDefault();
+
+
+//     if (itemFound != "") {
+//       const resultSearch = document.getElementById("search-item");
+//       resultSearch.innerHTML = sItems.map(item =>
+//         `<div class="card single-item">
+//             <div class="img-container">
+//               <img src=${item.img} class="card-img-top store-img" alt="">
+//               <span class="store-item-icon">
+//                 <i class="fas fa-shopping-cart"></i>
+//               </span>
+//             </div>
+//             <div class="card-body">
+//               <div class="card-text d-flex justify-content-between text-capitalize">
+//                 <h5 id="store-item-name">${item.name}</h5>
+//                 <h5 class="store-item-value">$<strong id="store-item-pice" class="font-weight-bold">${item.price}</strong></h5>
+//               </div>
+//             </div>
+//           </div>`)
+//     }
+//   })
+// })
+function fun() {
+  var input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById("search-item");
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("store-items");
+  li = ul.getElementsByTagName('li');
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("div")[0];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+
 }
-(function () {
-  const searchItemForm = document.getElementById('search-store-item');
-
-  searchItemForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-
-    const searchFieldValue = document.getElementById('search-item').value;
-    alert("hello");
-  });
-});
+//search item

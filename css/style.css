@@ -231,7 +231,9 @@ body {
   font-size: 0.8rem;
 }
 
-
+li {
+  list-style-type: none;
+}
 
 
 
