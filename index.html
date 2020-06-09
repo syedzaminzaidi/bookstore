@@ -61,10 +61,10 @@
               <i class="fas fa-shopping-cart"></i>
             </span>
             <p class="mb-0 text-capitalize">
-              <span id="item-count">2</span>
+              <span id="item-count"></span>
               items - $
               <span class="item-total">
-                10.49
+                0
               </span>
             </p>
 
@@ -85,40 +85,23 @@
         <!-- cart -->
         <div class="cart" id="cart">
           <!-- cart item -->
-          <div class="cart-item d-flex justify-content-between text-capitalize my-3">
-            <img src="img-cart/religion1.jpg" class="img-fluid rounded-circle" id="item-img" alt="">
-            <div class="item-text">
-              <p id="cart-item-title" class="font-weight-bold mb-0">cart item </p>
-              <span>$</span>
-              <span id="cart-item-price" class="cart-item-price mb-0">5.99</span>
-            </div>
-            <a href="#" id="cart-item-remove" class="cart-item-remove">
-              <i class="fas fa-trash"></i>
-            </a>
-          </div>
+
           <!-- end of cart item -->
+          <!-- cart -->
+
           <!-- cart item -->
-          <div class="cart-item d-flex justify-content-between text-capitalize my-3">
-            <img src="img-cart/fiction3.jpg" class="img-fluid rounded-circle" id="item-img" alt="">
-            <div class="item-text">
-              <p id="cart-item-title" class="font-weight-bold mb-0">cart item </p>
-              <span>$</span>
-              <span id="cart-item-price" class="cart-item-price mb-0">10.99</span>
-            </div>
-            <a href="#" id="cart-item-remove" class="cart-item-remove">
-              <i class="fas fa-trash"></i>
-            </a>
-          </div>
+
           <!-- end of cart item -->
           <div class="cart-total-container d-flex justify-content-around text-capitalize mt-5">
             <h5>total</h5>
-            <h5>$ <strong id="cart-total" class="font-weight-bold">10.00</strong></h5>
+            <h5>$ <strong id="cart-total" class="font-weight-bold">0</strong></h5>
           </div>
           <div class="cart-buttons-container mt-3 d-flex justify-content-between">
             <a href="#" id="clear-cart" class="btn btn-black text-uppercase"> clear-cart</a>
-            <a href="#" id="clear-cart" class="btn btn-pink text-uppercase"> checkout</a>
+            <a href="#" id="clear-cart" class="btn btn-pink text-uppercase" id="check" onclick="check()"> checkout</a>
           </div>
         </div>
+
       </div>
       <!-- end of banner -->
   </header>
@@ -179,7 +162,7 @@
       <!-- search box -->
       <div class="row">
         <div class="col-10 mx-auto col-md-6">
-          <form>
+          <form id="search-store-items">
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text search-box" id="search-icon">
@@ -189,6 +172,7 @@
               <input type="text" class="form-control" placeholder="item..." id="search-item">
             </div>
           </form>
+          <div id="search-result"></div>
         </div>
       </div>
       <!-- end of search box -->
@@ -206,7 +190,7 @@
             <div class="card-body">
               <div class="card-text d-flex justify-content-between text-capitalize">
                 <h5 id="store-item-name"> religion item</h5>
-                <h5 class="store-item-value"> $ <strong id="store-item-pice" class="font-weight-bold">5</strong></h5>
+                <h5 class="store-item-value">$<strong id="store-item-pice" class="font-weight-bold">5</strong></h5>
               </div>
             </div>
           </div>
@@ -224,7 +208,7 @@
             <div class="card-body">
               <div class="card-text d-flex justify-content-between text-capitalize">
                 <h5 id="store-item-name"> religion item</h5>
-                <h5 class="store-item-value"> $ <strong id="store-item-pice" class="font-weight-bold">5</strong></h5>
+                <h5 class="store-item-value">$<strong id="store-item-pice" class="font-weight-bold">5</strong></h5>
               </div>
             </div>
           </div>
@@ -242,7 +226,7 @@
             <div class="card-body">
               <div class="card-text d-flex justify-content-between text-capitalize">
                 <h5 id="store-item-name"> religion item</h5>
-                <h5 class="store-item-value"> $ <strong id="store-item-pice" class="font-weight-bold">5</strong></h5>
+                <h5 class="store-item-value">$<strong id="store-item-pice" class="font-weight-bold">5</strong></h5>
               </div>
             </div>
           </div>
@@ -260,7 +244,7 @@
             <div class="card-body">
               <div class="card-text d-flex justify-content-between text-capitalize">
                 <h5 id="store-item-name"> history item</h5>
-                <h5 class="store-item-value"> $ <strong id="store-item-pice" class="font-weight-bold">10</strong></h5>
+                <h5 class="store-item-value">$<strong id="store-item-pice" class="font-weight-bold">10</strong></h5>
               </div>
             </div>
           </div>
@@ -278,7 +262,7 @@
             <div class="card-body">
               <div class="card-text d-flex justify-content-between text-capitalize">
                 <h5 id="store-item-name"> history item</h5>
-                <h5 class="store-item-value"> $ <strong id="store-item-pice" class="font-weight-bold">10</strong></h5>
+                <h5 class="store-item-value">$<strong id="store-item-pice" class="font-weight-bold">10</strong></h5>
               </div>
             </div>
           </div>
@@ -296,7 +280,7 @@
             <div class="card-body">
               <div class="card-text d-flex justify-content-between text-capitalize">
                 <h5 id="store-item-name"> history item</h5>
-                <h5 class="store-item-value"> $ <strong id="store-item-pice" class="font-weight-bold">10</strong></h5>
+                <h5 class="store-item-value">$<strong id="store-item-pice" class="font-weight-bold">10</strong></h5>
               </div>
             </div>
           </div>
@@ -314,7 +298,7 @@
             <div class="card-body">
               <div class="card-text d-flex justify-content-between text-capitalize">
                 <h5 id="store-item-name"> fiction item</h5>
-                <h5 class="store-item-value"> $ <strong id="store-item-pice" class="font-weight-bold">15</strong></h5>
+                <h5 class="store-item-value">$<strong id="store-item-pice" class="font-weight-bold">15</strong></h5>
               </div>
             </div>
           </div>
@@ -332,7 +316,7 @@
             <div class="card-body">
               <div class="card-text d-flex justify-content-between text-capitalize">
                 <h5 id="store-item-name"> fiction item</h5>
-                <h5 class="store-item-value"> $ <strong id="store-item-pice" class="font-weight-bold">15</strong></h5>
+                <h5 class="store-item-value">$<strong id="store-item-pice" class="font-weight-bold">15</strong></h5>
               </div>
             </div>
           </div>
@@ -350,7 +334,7 @@
             <div class="card-body">
               <div class="card-text d-flex justify-content-between text-capitalize">
                 <h5 id="store-item-name"> fiction item</h5>
-                <h5 class="store-item-value"> $ <strong id="store-item-pice" class="font-weight-bold">15</strong></h5>
+                <h5 class="store-item-value">$<strong id="store-item-pice" class="font-weight-bold">15</strong></h5>
               </div>
             </div>
           </div>
@@ -368,7 +352,7 @@
             <div class="card-body">
               <div class="card-text d-flex justify-content-between text-capitalize">
                 <h5 id="store-item-name"> science item</h5>
-                <h5 class="store-item-value"> $ <strong id="store-item-pice" class="font-weight-bold">20</strong></h5>
+                <h5 class="store-item-value">$<strong id="store-item-pice" class="font-weight-bold">20</strong></h5>
               </div>
             </div>
           </div>
@@ -386,7 +370,7 @@
             <div class="card-body">
               <div class="card-text d-flex justify-content-between text-capitalize">
                 <h5 id="store-item-name"> science item</h5>
-                <h5 class="store-item-value"> $ <strong id="store-item-pice" class="font-weight-bold">20</strong></h5>
+                <h5 class="store-item-value">$<strong id="store-item-pice" class="font-weight-bold">20</strong></h5>
               </div>
             </div>
           </div>
@@ -404,7 +388,7 @@
             <div class="card-body">
               <div class="card-text d-flex justify-content-between text-capitalize">
                 <h5 id="store-item-name"> science item</h5>
-                <h5 class="store-item-value"> $ <strong id="store-item-pice" class="font-weight-bold">20</strong></h5>
+                <h5 class="store-item-value">$<strong id="store-item-pice" class="font-weight-bold">20</strong></h5>
               </div>
             </div>
           </div>
